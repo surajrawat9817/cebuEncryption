@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Decryption";
+}
+
+<h2>Encryption</h2>
+
+<form asp-action="EncryptText" method="post">
+    <div class="form-group">
+        <label for="encryptedText">Enter Encrypted Text:</label>
+        <input type="text" class="form-control" id="encryptedText" name="encryptedText" required />
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="secretKey">Enter Secret Key (optional):</label>
+        <input type="text" class="form-control" id="secretKey" name="secretKey" placeholder="Leave blank to use default key" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Encrypted</button>
+</form>
+
+@if (ViewData["EncryptedText"] != null)
+{
+    <h3>Encrypted Text</h3>
+    <div class="form-group">
+        <label for="encryptedText">Decrypted Text</label>
+        <input type="text" class="form-control" id="encryptedText" value="@ViewData["EncryptedText"]" readonly />
+    </div>
+}
